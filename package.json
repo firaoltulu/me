@@ -1,5 +1,4 @@
 {
-  "homepage": "https://firaoltulu.github.io/me",
   "name": "my-portfolio-project",
   "version": "1.0.0",
   "author": "firaol tulu",
@@ -86,21 +85,6 @@
     "prettier": "^3.3.3",
     "webpack-cli": "^5.1.4"
   },
-  "browser": {
-    "crypto": false,
-    "stream": false
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  
   "description": "My portfolio project"
 }
