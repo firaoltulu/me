@@ -237,8 +237,9 @@ export default function LandingPage() {
           <LandingService />
           <LandingProjects />
           <LandingTestimonials />
-          {/* <LandingLicenses /> */}
           <LandingContact />
+          <LandingLicenses />
+
           <LandingFooter />
 
         </ContentStyle>

@@ -1,19 +1,25 @@
 import { useEffect } from "react";
-import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import SendIcon from '@mui/icons-material/Send';
 
 // material
-import { alpha, useTheme, styled } from '@mui/material/styles';
+import { useTheme, styled } from '@mui/material/styles';
 import {
-  Box, Grid, Paper, Rating, Container, Typography, useMediaQuery,
-  Divider, Card, CardContent, CardMedia, Button
+  Box, Grid, Container, Typography, useMediaQuery,
+  Card, CardContent, CardMedia, Button
 } from '@mui/material';
 //
-import { varFadeInUp, MotionInView, TextAnimate } from '../../animate';
+import { TextAnimate } from '../../animate';
 // Hooks
 import useNav from '../../../hooks/useNav';
+// Assets
+import googleicon from "../../../assets/license/googleicon.png";
+import metaicon from "../../../assets/license/metaicon.png";
+import alxicon from "../../../assets/license/alxicon.png";
+import certificateone from "../../../assets/license/certificateone.png";
+import certificatetwo from "../../../assets/license/certificatetwo.png";
+import certificatethree from "../../../assets/license/certificatethree.png";
 
 // ----------------------------------------------------------------------
 
@@ -41,7 +47,7 @@ export default function LandingLicenses() {
 
   useEffect(() => {
     if (inView && (isLock === false)) {
-      onScrollChange(navOption[3]);
+      onScrollChange(navOption[5]);
     } else {
     }
   }, [inView])
@@ -62,7 +68,116 @@ export default function LandingLicenses() {
   return (
     <Box ref={ref}>
 
-      <RootStyle id='testimonials_section'>
+      <RootStyle id='licence_section'>
+
+        <Box className="loop_scroll" sx={{
+          borderTop: '1px solid #371f0e33',
+          borderBottom: '1px solid #371f0e33',
+          borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
+        }}>
+
+          <motion.div className="infinity_content" animate={animation}
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              transformStyle: "preserve-3d",
+              color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec'
+            }}
+          >
+
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+            <Box className="infinity_inside">
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+              <h5>Licenses & certifications</h5>
+              <h5>•</h5>
+            </Box>
+
+
+
+
+          </motion.div>
+
+        </Box>
 
         <Container maxWidth="lg" sx={{
           position: 'relative',
@@ -74,7 +189,6 @@ export default function LandingLicenses() {
           <Grid item xs={12} sx={{
             color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec',
             padding: "1em",
-            // paddingTop: "5em",
           }}>
 
             <Grid container direction="row" rowSpacing={0} sx={{ padding: "1em", }}>
@@ -84,7 +198,6 @@ export default function LandingLicenses() {
                 <TextAnimate
                   text="Licenses & certifications"
                   component={motion.h3}
-
                   sx={{
                     typography: 'h3',
                     'textTransform': 'uppercase',
@@ -99,6 +212,255 @@ export default function LandingLicenses() {
                 </TextAnimate>
               </Grid>
 
+              <Grid container direction="row" rowSpacing={0} sx={{ padding: "1em", }}>
+
+                <Grid item xs={12} sx={{
+                  borderBottom: '1px solid #371f0e33',
+                  borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
+                }}>
+
+                  <Grid container direction="row"
+                    sx={{
+                      alignContent: "center",
+                      borderRadius: "1em",
+                    }}>
+
+                    <Grid item xs={12} md={6} >
+                      <Box sx={{ padding: "1em" }}>
+                        <Card elevation={0} sx={{ display: 'flex', }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ maxWidth: "170px", minWidth: "104px", maxHeight: "114px", minHeight: "104px", padding: "1px" }}
+                            image={metaicon}
+                            alt="Meta Icon"
+                          />
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography variant="h6">
+                                Mobile Development
+                              </Typography>
+                              <Typography>
+                                Meta<br></br>
+                              </Typography>
+                              <Typography >
+                                Issued Sep 2022<br></br>
+                              </Typography>
+                              <Typography >
+                                Credential ID DPUHGZGE6VAY<br></br>
+                              </Typography>
+                            </CardContent>
+                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                              <Button variant="outlined" size="small" href={'https://www.coursera.org/account/accomplishments/certificate/DPUHGZGE6VAY'} target="_blank" endIcon={<SendIcon />}>
+                                show Credential
+                              </Button>
+
+                            </Box>
+                          </Box>
+                        </Card>
+
+                      </Box>
+                    </Grid>
+
+                    <Grid item xs={12} md={6} >
+
+                      <Box sx={{ padding: "1em" }}>
+                        <Card elevation={0} sx={{ display: 'flex', }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ borderRadius: "5px", maxWidth: "170px", minWidth: "104px", maxHeight: "144px", padding: "1px" }}
+                            image={certificatetwo}
+                            alt="Mobile Developement certificate"
+                          >
+                          </CardMedia>
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography textAlign={"center"} >
+                                Skills: Reactjs | React.Native
+                              </Typography>
+
+                            </CardContent>
+
+                          </Box>
+                        </Card>
+
+                      </Box>
+
+                    </Grid>
+
+
+                  </Grid>
+
+                </Grid>
+
+                <Grid item xs={12} sx={{
+                  marginBottom: "1em", borderBottom: '1px solid #371f0e33',
+                  borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
+                }}>
+
+                  <Grid container direction="row"
+                    sx={{
+                      alignContent: "center",
+                      borderRadius: "1em",
+                    }}>
+
+                    <Grid item xs={12} md={6} >
+                      <Box sx={{ padding: "1em" }}>
+                        <Card elevation={0} sx={{
+                          display: 'flex',
+                        }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ maxWidth: "170px", minWidth: "104px", maxHeight: "144px", padding: "6px" }}
+                            image={googleicon}
+                            alt="Live from space album cover"
+                          />
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography variant="h6">
+                                Foundations: Data, Data, Everywhere
+                              </Typography>
+                              <Typography>
+                                Google<br></br>
+                              </Typography>
+                              <Typography
+                              >
+                                Issued Sep 2022<br></br>
+                              </Typography>
+                              <Typography
+                              >
+                                Credential ID ABSCVTD5FCWW<br></br>
+                              </Typography>
+                            </CardContent>
+                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                              <Button variant="outlined" size="large" href={'https://www.coursera.org/account/accomplishments/certificate/ABSCVTD5FCWW'} target="_blank" size="small" endIcon={<SendIcon />}>
+                                show Credential
+                              </Button>
+
+                            </Box>
+                          </Box>
+                        </Card>
+
+                      </Box>
+                    </Grid>
+
+                    <Grid item xs={12} md={6} >
+
+                      <Box sx={{ padding: "1em" }}>
+                        <Card elevation={0} sx={{
+                          display: 'flex',
+                          // backgroundColor: theme.palette.certifications.main, 
+                        }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ borderRadius: "5px", maxWidth: "170px", minWidth: "104px", maxHeight: "144px", padding: "6px" }}
+                            image={certificateone}
+                            alt="Live from space album cover"
+                          />
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography textAlign={"center"}
+                              // color={theme.palette.certifications.contrastText}
+                              >
+                                Skills: R
+                              </Typography>
+
+                            </CardContent>
+
+                          </Box>
+                        </Card>
+
+                      </Box>
+
+                    </Grid>
+
+
+                  </Grid>
+
+                </Grid>
+
+                <Grid item xs={12} sx={{
+                  marginBottom: "1em", borderBottom: '1px solid #371f0e33',
+                  borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
+                }}>
+
+                  <Grid container direction="row"
+                    sx={{
+                      alignContent: "center",
+                      borderRadius: "1em",
+                    }}>
+
+                    <Grid item xs={12} md={6} >
+                      <Box sx={{ padding: "1em" }}>
+                        <Card elevation={0} sx={{
+                          display: 'flex',
+
+                        }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ maxWidth: "170px", minWidth: "104px", maxHeight: "144px", padding: "6px" }}
+                            image={alxicon}
+                            alt="Live from space album cover"
+                          />
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography variant="h6">
+                                Software Engineering
+                              </Typography>
+                              <Typography>
+                                ALX<br></br>
+                              </Typography>
+                              <Typography>
+                                Issued July 2024<br></br>
+                              </Typography>
+                              <Typography>
+                                Credential ID 3XcLC9pTfG<br></br>
+                              </Typography>
+                            </CardContent>
+                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                              <Button variant="outlined" href={'https://intranet.alxswe.com/certificates/3XcLC9pTfG'} target="_blank" size="small" endIcon={<SendIcon />}>
+                                show Credential
+                              </Button>
+
+                            </Box>
+                          </Box>
+                        </Card>
+
+                      </Box>
+                    </Grid>
+
+                    <Grid item xs={12} md={6} >
+
+                      <Box sx={{ padding: "1em" }}>
+                        <Card elevation={0} sx={{ display: 'flex' }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ borderRadius: "5px", maxWidth: "170px", minWidth: "104px", maxHeight: "144px", padding: "6px" }}
+                            image={certificatethree}
+                            alt="Live from space album cover"
+                          />
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography >
+                                Skills: C++, Python, C#, JavaScript, Node.js
+                              </Typography>
+
+                            </CardContent>
+
+                          </Box>
+                        </Card>
+
+                      </Box>
+
+                    </Grid>
+
+
+                  </Grid>
+
+                </Grid>
+
+
+              </Grid>
+
             </Grid>
 
           </Grid>
@@ -109,317 +471,7 @@ export default function LandingLicenses() {
 
       </RootStyle>
 
-      <Box sx={{ height: { xs: '5vh' } }} />
-
-      <Box className="loop_scroll" sx={{
-        borderTop: '1px solid #371f0e33',
-        borderBottom: '1px solid #371f0e33',
-        borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
-      }}>
-
-        <motion.div className="infinity_content" animate={animation}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            transformStyle: "preserve-3d",
-            color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec'
-          }}
-        >
-
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-          <Box className="infinity_inside">
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-            <h5>For more information contact with me</h5>
-            <h5>•</h5>
-          </Box>
-
-        </motion.div>
-
-      </Box>
+      <Box sx={{ height: { md: '15vh' } }} />
 
     </Box>
   );

@@ -15,6 +15,8 @@ import useNav from '../../../hooks/useNav';
 // 
 import hero_one from "../../../assets/hero/hero_one.png";
 import hero_two from "../../../assets/hero/hero_two.png";
+import hero_three from "../../../assets/hero/hero_three.png";
+
 import ethiopia from "../../../assets/hero/ethiopia.png";
 
 // ----------------------------------------------------------------------
@@ -357,6 +359,36 @@ export default function LandingHero({ bodyRef }) {
 
             <Box className="hero_links" sx={{ mt: '4em' }}>
 
+              <a href="https://leetcode.com/u/firaool/" target="_blank"
+                className="hero_soc w-inline-block">
+                <TextAnimate
+                  text="leetcode"
+                  component={motion.h5}
+                  sx={{
+                    typography: 'h5',
+                    color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec',
+
+                    textTransform: 'uppercase',
+                    marginTop: '0',
+                    marginBottom: '0',
+                    fontFamily: 'Ade display, sans-serif',
+                    fontSize: '1em',
+                    fontWeight: 400,
+                    lineHeight: '1',
+
+
+
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: '2em'
+                    },
+
+                    [theme.breakpoints.down('sm')]: {
+                      fontSize: '3.5em',
+                    },
+
+                  }}
+                />
+              </a>
 
               <a href="https://www.linkedin.com/in/firaol-tulu-740962248/" target="_blank"
                 className="hero_soc w-inline-block">
@@ -388,6 +420,7 @@ export default function LandingHero({ bodyRef }) {
                   }}
                 />
               </a>
+
 
               <a href="https://github.com/firaoltulu" target="_blank" className="hero_soc w-inline-block">
 

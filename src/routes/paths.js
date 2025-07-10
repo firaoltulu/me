@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------
 
 export const PATH_PAGE = {
-  root: '/portfolio_two/',
-  landing: '/portfolio_two/',
-  project_one: '/projects/post/one',
-  project_two: '/projects/post/two',
-  project_three: '/projects/post/three',
+  root: '/me',
+  landing: '/me',
+  project_one: '/me/projects/post/one',
+  project_two: '/me/projects/post/two',
+  project_three: '/me/projects/post/three',
 
 };
 

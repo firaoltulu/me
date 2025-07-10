@@ -27,7 +27,18 @@ export default function MapMarkersPopups({ data, ...other }) {
 
   return (
     <>
-      <MapGL {...viewport} onViewportChange={setViewport} {...other}>
+      <MapGL
+        {...viewport}
+        onMove={(evt) => setViewport(evt.viewState)}
+        interactive={true}
+        scrollZoom={true}
+        dragPan={true}
+        dragRotate={true}
+        {...other}
+        // mapStyle={`mapbox://styles/mapbox/${isLight ? 'light' : 'dark'}-v10`}
+
+      >
+
         <MapControlScale />
         <MapControlNavigation />
         <MapControlFullscreen />
@@ -43,7 +54,11 @@ export default function MapMarkersPopups({ data, ...other }) {
         ))}
 
         {tooltip && (
-          <MapControlPopup longitude={tooltip.latlng[1]} latitude={tooltip.latlng[0]} onClose={() => setTooltip(false)}>
+          <MapControlPopup
+            latitude={tooltip.latlng[0]}
+            longitude={tooltip.latlng[1]}
+            onClose={() => setTooltip(null)}
+          >
             <Box sx={{ color: 'common.white' }}>
               <Box
                 sx={{
@@ -90,7 +105,9 @@ export default function MapMarkersPopups({ data, ...other }) {
             </Box>
           </MapControlPopup>
         )}
+
       </MapGL>
+
     </>
   );
 }

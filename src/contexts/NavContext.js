@@ -29,6 +29,11 @@ const PRIMARY_NAV = [
     "value": "#fda92d",
     "to": "contact_section"
   },
+  {
+    "name": "licences",
+    "value": "#ec1c24",
+    "to": "licence_section"
+  },
 
 ];
 
@@ -142,7 +147,7 @@ function NavProvider({ children }) {
 
       const timer = setTimeout(callback, delay);
 
-      return () => clearTimeout(timer); 
+      return () => clearTimeout(timer);
     }, [callback, delay]);
   }
 

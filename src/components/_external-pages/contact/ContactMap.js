@@ -1,32 +1,27 @@
-import MapGL from 'react-map-gl';
-import { useState } from 'react';
-import Map from 'react-map-gl';
+// import MapGL from 'react-map-gl';
+import { useState, useMemo } from 'react';
 
-// import { Icon } from '@iconify/react';
-// import phoneFill from '@iconify/icons-eva/phone-fill';
+import Map, {
+  Marker,
+  Popup,
+  NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+  GeolocateControl
+} from 'react-map-gl';
+
+
 // material
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
-
 //
 import { MapControlPopup, MapControlMarker, MapControlScale, MapControlNavigation } from '../../map';
 import { mapConfig } from '../../../config';
 import { varFadeIn, MotionInView } from '../../animate';
 
-// ----------------------------------------------------------------------
+import Pin from './pin';
 
-export const MOCK_ADDRESS = [
-  {
-    latlng: [33, 65],
-    address: '508 Nifas silk Addis Ababa, GA 30263',
-    phoneNumber: '255-911-782-233'
-  },
-  {
-    latlng: [-12.5, 18.5],
-    address: '600 nazrait oromia, GA 30263',
-    phoneNumber: '255-911-782-233'
-  }
-];
+// ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   zIndex: 0,
@@ -39,77 +34,98 @@ const RootStyle = styled('div')(({ theme }) => ({
   }
 }));
 
+const CITIES = [
+  {
+    "city": "New York", "population": "8,175,133",
+    "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Gotham.jpg/240px-Above_Gotham.jpg",
+    "state": "New York",
+    "latitude": -87.603735, "longitude": 41.829985
+  },
+]
+
 // ----------------------------------------------------------------------
 
 export default function ContactMap() {
+
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
   const [tooltip, setTooltip] = useState(null);
   const [viewport, setViewport] = useState({
-    latitude: 12,
-    longitude: 42,
+    latitude: 8.9,
+    longitude: 38.7,
     zoom: 2
   });
 
+  const pins = useMemo(
+    () =>
+      CITIES.map((city, index) => (
+        <Marker
+          key={`marker-${index}`}
+          longitude={city.longitude}
+          latitude={city.latitude}
+          anchor="bottom"
+          onClick={e => {
+            e.originalEvent.stopPropagation();
+            setPopupInfo(city);
+          }}
+        >
+          <Pin />
+        </Marker>
+      )),
+    []
+  );
+
   return (
     <MotionInView variants={varFadeIn}>
+
       <RootStyle>
-        {/* <MapGL
-          {...viewport}
-          onViewportChange={setViewport}
-          mapStyle={`mapbox://styles/mapbox/${isLight ? 'light' : 'dark'}-v10`}
-          mapboxApiAccessToken={mapConfig}
-          width="100%"
-          height="100%"
-        >
-          <MapControlScale />
-          <MapControlNavigation />
 
-          {MOCK_ADDRESS.map((country) => (
-            <MapControlMarker
-              key={country.latlng}
-              latitude={country.latlng[0]}
-              longitude={country.latlng[1]}
-              onClick={() => setTooltip(country)}
-            />
-          ))}
-
-          {tooltip && (
-            <MapControlPopup
-              longitude={tooltip.latlng[1]}
-              latitude={tooltip.latlng[0]}
-              onClose={() => setTooltip(null)}
-              sx={{
-                '& .mapboxgl-popup-content': { bgcolor: 'common.white' },
-                '&.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip': { borderTopColor: '#FFF' },
-                '&.mapboxgl-popup-anchor-top .mapboxgl-popup-tip': { borderBottomColor: '#FFF' }
-              }}
-            >
-              <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-                Address
-              </Typography>
-              <Typography component="p" variant="caption">
-                {tooltip.address}
-              </Typography>
-
-              <Typography component="p" variant="caption" sx={{ mt: 1, display: 'flex', alignItems: 'center' }}>
-                <Box component={Icon} icon={phoneFill} sx={{ mr: 0.5, width: 14, height: 14 }} />
-                {tooltip.phoneNumber}
-              </Typography>
-            </MapControlPopup>
-          )}
-        </MapGL> */}
         <Map
-          mapboxAccessToken="<Mapbox access token>"
+
           initialViewState={{
-            longitude: -122.4,
-            latitude: 37.8,
-            zoom: 14
+            latitude: 8.9,
+            longitude: 38.7,
+            zoom: 1.5,
+            bearing: 0,
+            pitch: 0
           }}
-          style={{ width: 600, height: 400 }}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
-        />
+
+          mapStyle={`mapbox://styles/mapbox/satellite-streets-v12`}
+          mapboxAccessToken={mapConfig}
+        >
+
+          <GeolocateControl position="top-right" />
+          <FullscreenControl position="top-right" />
+          <NavigationControl position="top-right" />
+          <ScaleControl />
+
+          {pins}
+
+          {/* {popupInfo && (
+            <Popup
+              anchor="top"
+              longitude={Number(popupInfo.longitude)}
+              latitude={Number(popupInfo.latitude)}
+              onClose={() => setPopupInfo(null)}
+            >
+              <div>
+                {popupInfo.city}, {popupInfo.state} |{' '}
+                <a
+                  target="_new"
+                  href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.city}, ${popupInfo.state}`}
+                >
+                  Wikipedia
+                </a>
+              </div>
+              <img width="100%" src={popupInfo.image} />
+            </Popup>
+          )} */}
+
+        </Map>
+
       </RootStyle>
+
     </MotionInView>
   );
+
 }

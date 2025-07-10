@@ -61,12 +61,12 @@ export default function Router() {
         </GuestGuard>
       ),
       children: [
-        { path: '/portfolio_two/', element: <LandingPage></LandingPage> },
+        { path: '/me', element: <LandingPage></LandingPage> },
       ]
     },
 
     {
-      path: 'projects',
+      path: '/me/projects',
       element: (
         <GuestGuard>
           <ProjectLayout />
