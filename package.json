@@ -1,4 +1,6 @@
 {
+  "homepage": "https://firaoltulu.github.io/me/",
+  "main": "index.js",
   "name": "my-portfolio-project",
   "version": "1.0.0",
   "author": "firaol tulu",
@@ -7,7 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
