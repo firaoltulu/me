@@ -9,7 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "npm run build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
@@ -87,6 +87,5 @@
     "prettier": "^3.3.3",
     "webpack-cli": "^5.1.4"
   },
-  
   "description": "My portfolio project"
 }
