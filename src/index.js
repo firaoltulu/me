@@ -15,31 +15,33 @@ import { NavProvider } from './contexts/NavContext';
 
 // components
 import App from './App';
+import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
-  <HelmetProvider>
-    <ReduxProvider store={store}>
-      <PersistGate persistor={persistor}>
-        <SettingsProvider>
+  // <HelmetProvider>
+  //   <ReduxProvider store={store}>
+  //     <PersistGate persistor={persistor}>
+  //       <SettingsProvider>
 
-          <CollapseDrawerProvider>
+  //         <CollapseDrawerProvider>
 
-            <BrowserRouter>
-              <AuthProvider>
-                <NavProvider>
-                  <App />
-                </NavProvider>
-              </AuthProvider>
-            </BrowserRouter>
+  //           <BrowserRouter>
+  //             <AuthProvider>
+  //               <NavProvider>
+  //                 <App />
+  //               </NavProvider>
+  //             </AuthProvider>
+  //           </BrowserRouter>
 
-          </CollapseDrawerProvider>
+  //         </CollapseDrawerProvider>
 
-        </SettingsProvider>,
-      </PersistGate>
-    </ReduxProvider>
-  </HelmetProvider>,
+  //       </SettingsProvider>,
+  //     </PersistGate>
+  //   </ReduxProvider>
+  // </HelmetProvider>,
+  <Typography>Helloooooooooooooooooooooooooooooooo</Typography>,
   document.getElementById('root')
 );
 
