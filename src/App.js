@@ -20,19 +20,18 @@ export default function App() {
   const { isInitialized } = useAuth();
 
   return (
-    <Typography>Helloooooooooooooooooooooooooooooooo</Typography>
-    // <ThemeConfig>
+    <ThemeConfig>
 
-    //   <RtlLayout>
-    //     <NotistackProvider>
-    //       <Settings />
-    //       <ScrollToTop />
+      <RtlLayout>
+        <NotistackProvider>
+          <Settings />
+          <ScrollToTop />
 
-    //       {isInitialized ? <Router /> : <LoadingScreen />}
+          {isInitialized ? <Router /> : <LoadingScreen />}
 
-    //     </NotistackProvider>
-    //   </RtlLayout>
+        </NotistackProvider>
+      </RtlLayout>
 
-    // </ThemeConfig>
+    </ThemeConfig>
   );
 }

@@ -1,4 +1,4 @@
-
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -19,31 +19,60 @@ import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-ReactDOM.render(
-  // <HelmetProvider>
-  //   <ReduxProvider store={store}>
-  //     <PersistGate persistor={persistor}>
-  //       <SettingsProvider>
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  //         <CollapseDrawerProvider>
+root.render(
+  <React.StrictMode>
+    <HelmetProvider>
+      <ReduxProvider store={store}>
+        <PersistGate persistor={persistor}>
+          <SettingsProvider>
 
-  //           <BrowserRouter>
-  //             <AuthProvider>
-  //               <NavProvider>
-  //                 <App />
-  //               </NavProvider>
-  //             </AuthProvider>
-  //           </BrowserRouter>
+            <CollapseDrawerProvider>
 
-  //         </CollapseDrawerProvider>
+              <BrowserRouter>
+                <AuthProvider>
+                  <NavProvider>
+                    <App />
+                  </NavProvider>
+                </AuthProvider>
+              </BrowserRouter>
 
-  //       </SettingsProvider>,
-  //     </PersistGate>
-  //   </ReduxProvider>
-  // </HelmetProvider>,
-  <Typography>Helloooooooooooooooooooooooooooooooo</Typography>,
-  document.getElementById('root')
+            </CollapseDrawerProvider>
+
+          </SettingsProvider>,
+        </PersistGate>
+      </ReduxProvider>
+    </HelmetProvider>
+  </React.StrictMode>
 );
+
+
+// ReactDOM.render(
+//   <HelmetProvider>
+//     <ReduxProvider store={store}>
+//       <PersistGate persistor={persistor}>
+//         <SettingsProvider>
+
+//           <CollapseDrawerProvider>
+
+//             <BrowserRouter>
+//               <AuthProvider>
+//                 <NavProvider>
+//                   <App />
+//                 </NavProvider>
+//               </AuthProvider>
+//             </BrowserRouter>
+
+//           </CollapseDrawerProvider>
+
+//         </SettingsProvider>,
+//       </PersistGate>
+//     </ReduxProvider>
+//   </HelmetProvider>,
+//   <Typography>Helloooooooooooooooooooooooooooooooo</Typography>,
+//   document.getElementById('root')
+// );
 
 
 
