@@ -8,7 +8,6 @@ import useSettings from '../hooks/useSettings';
 //
 import shape from './shape';
 import palette from './palette';
-import typography from './typography';
 import breakpoints from './breakpoints';
 import GlobalStyles from './globalStyles';
 import componentsOverride from './overrides';
@@ -29,7 +28,7 @@ export default function ThemeConfig({ children }) {
     () => ({
       palette: isLight ? { ...palette.light, mode: 'light' } : { ...palette.dark, mode: 'dark' },
       shape,
-      typography,
+     
       breakpoints,
       direction: themeDirection,
       shadows: isLight ? shadows.light : shadows.dark,
