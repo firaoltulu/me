@@ -17,7 +17,7 @@ import { Typography } from '@mui/material';
 // ----------------------------------------------------------------------
 
 export default function App() {
-  const { isInitialized } = useAuth();
+  // const { isInitialized } = useAuth();
 
   return (
     <ThemeConfig>
@@ -27,7 +27,7 @@ export default function App() {
           <Settings />
           <ScrollToTop />
 
-          {isInitialized ? <Router /> : <LoadingScreen />}
+          <Router />
 
         </NotistackProvider>
       </RtlLayout>

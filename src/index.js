@@ -9,7 +9,7 @@ import { store, persistor } from './redux/store';
 // contexts
 import { SettingsProvider } from './contexts/SettingsContext';
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
-import { AuthProvider } from './contexts/JWTContext';
+// import { AuthProvider } from './contexts/JWTContext';
 import { NavProvider } from './contexts/NavContext';
 
 
@@ -31,11 +31,11 @@ root.render(
             <CollapseDrawerProvider>
 
               <BrowserRouter>
-                <AuthProvider>
+                {/* <AuthProvider> */}
                   <NavProvider>
                     <App />
                   </NavProvider>
-                </AuthProvider>
+                {/* </AuthProvider> */}
               </BrowserRouter>
 
             </CollapseDrawerProvider>
