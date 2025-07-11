@@ -11,7 +11,6 @@ import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
 import Settings from './components/settings';
 import NotistackProvider from './components/NotistackProvider';
-import { Typography } from '@mui/material';
 
 
 // ----------------------------------------------------------------------
@@ -26,8 +25,7 @@ export default function App() {
         <NotistackProvider>
           <Settings />
           <ScrollToTop />
-          <Typography>helloooooooooooooooooooooooooooooooooooooooooooooooooooooo</Typography>
-          {/* {isInitialized ? <Router /> : <LoadingScreen />} */}
+          {isInitialized ? <Router /> : <LoadingScreen />}
         </NotistackProvider>
       </RtlLayout>
 
