@@ -25,7 +25,9 @@ export default function App() {
         <NotistackProvider>
           <Settings />
           <ScrollToTop />
+
           {isInitialized ? <Router /> : <LoadingScreen />}
+
         </NotistackProvider>
       </RtlLayout>
 
