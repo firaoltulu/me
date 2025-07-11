@@ -5,22 +5,11 @@ import { forwardRef, useEffect, useCallback } from 'react';
 // material
 import { Box } from '@mui/material';
 // utils
-import track from '../utils/analytics';
 
 // ----------------------------------------------------------------------
 
 const Page = forwardRef(({ children, title = '', ...other }, ref) => {
   const { pathname } = useLocation();
-
-  const sendPageViewEvent = useCallback(() => {
-    track.pageview({
-      page_path: pathname
-    });
-  }, []);
-
-  useEffect(() => {
-    sendPageViewEvent();
-  }, [sendPageViewEvent]);
 
   return (
 
