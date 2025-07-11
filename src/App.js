@@ -11,6 +11,7 @@ import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
 import Settings from './components/settings';
 import NotistackProvider from './components/NotistackProvider';
+import { Typography } from '@mui/material';
 
 
 // ----------------------------------------------------------------------
@@ -19,18 +20,19 @@ export default function App() {
   const { isInitialized } = useAuth();
 
   return (
-    <ThemeConfig>
+    <Typography>Helloooooooooooooooooooooooooooooooo</Typography>
+    // <ThemeConfig>
 
-      <RtlLayout>
-        <NotistackProvider>
-          <Settings />
-          <ScrollToTop />
+    //   <RtlLayout>
+    //     <NotistackProvider>
+    //       <Settings />
+    //       <ScrollToTop />
 
-          {isInitialized ? <Router /> : <LoadingScreen />}
+    //       {isInitialized ? <Router /> : <LoadingScreen />}
 
-        </NotistackProvider>
-      </RtlLayout>
+    //     </NotistackProvider>
+    //   </RtlLayout>
 
-    </ThemeConfig>
+    // </ThemeConfig>
   );
 }
