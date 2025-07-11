@@ -11,7 +11,6 @@ import { SettingsProvider } from './contexts/SettingsContext';
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 import { AuthProvider } from './contexts/JWTContext';
 import { NavProvider } from './contexts/NavContext';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 
 // components
@@ -44,6 +43,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorkerRegistration.unregister();
 
 
