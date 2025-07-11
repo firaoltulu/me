@@ -12,11 +12,13 @@ GuestGuard.propTypes = {
 };
 
 export default function GuestGuard({ children }) {
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
 
-  if (isAuthenticated) {
-    return <Navigate to={PATH_PAGE.root} />;
-  }
+  // if (isAuthenticated) {
+  //   return <Navigate to={PATH_PAGE.root} />;
+  // }
+
+  // return <>{children}</>;
 
   return <>{children}</>;
 }

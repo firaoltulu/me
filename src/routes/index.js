@@ -59,7 +59,7 @@ export default function Router() {
     },
 
     {
-      path: '/me',
+      path: '',
       element: (
         <GuestGuard>
           <MainLayout />
@@ -71,14 +71,14 @@ export default function Router() {
     },
 
     {
-      path: '/me/projects',
+      path: '/projects',
       element: (
         <GuestGuard>
           <ProjectLayout />
         </GuestGuard>
       ),
       children: [
-        { path: '', element: <Navigate to="/me/projects/post/one" replace /> },
+        { path: '', element: <Navigate to="/projects/post/one" replace /> },
 
         {
           path: 'post',
