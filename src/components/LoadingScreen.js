@@ -4,38 +4,7 @@ import { useEffect, useMemo } from 'react';
 // material
 import { styled, alpha } from '@mui/material/styles';
 import { Box } from '@mui/material';
-//
-import Logo from './Logo';
-
 // ----------------------------------------------------------------------
-
-// const nprogressStyle = styled('div')(({ theme }) => ({
-//   '@global': {
-//     '#nprogress': {
-//       pointerEvents: 'none',
-//       '& .bar': {
-//         top: 0,
-//         left: 0,
-//         height: 2,
-//         width: '100%',
-//         position: 'fixed',
-//         zIndex: theme.zIndex.snackbar,
-//         backgroundColor: theme.palette.primary.main,
-//         boxShadow: `0 0 2px ${theme.palette.primary.main}`,
-//       },
-//       '& .peg': {
-//         right: 0,
-//         opacity: 1,
-//         width: 100,
-//         height: '100%',
-//         display: 'block',
-//         position: 'absolute',
-//         transform: 'rotate(3deg) translate(0px, -4px)',
-//         boxShadow: `0 0 10px ${theme.palette.primary.main}, 0 0 5px ${theme.palette.primary.main}`,
-//       },
-//     },
-//   },
-// }));
 
 const createNprogressStyle = () => {
   const NprogressStyle = styled('div')(({ theme }) => ({
@@ -98,21 +67,6 @@ export default function LoadingScreen({ ...other }) {
   return (
     <RootStyle {...other}>
       <ProgressBar />
-      {/* <h1>helloooooooooooo</h1> */}
-
-      {/* <motion.div
-        initial={{ rotateY: 0 }}
-        animate={{ rotateY: 360 }}
-        transition={{
-          duration: 2,
-          ease: 'easeInOut',
-          repeatDelay: 1,
-          repeat: Infinity
-        }}
-      >
-        <Logo sx={{ width: 64, height: 64 }} />
-      </motion.div> */}
-
       <Box
         component={motion.div}
         animate={{

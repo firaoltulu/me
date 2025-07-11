@@ -13,6 +13,7 @@ import LoadingScreen from '../components/LoadingScreen';
 // ----------------------------------------------------------------------
 
 const Loadable = (Component) => {
+
   const WrappedComponent = (props) => {
     const { pathname } = useLocation();
     const isDashboard = pathname.includes('/dashboard');
@@ -39,7 +40,9 @@ const Loadable = (Component) => {
   };
 
   return WrappedComponent;
+
 };
+
 export default function Router() {
 
   return useRoutes([
@@ -56,26 +59,26 @@ export default function Router() {
     },
 
     {
-      path: '/',
+      path: '/me',
       element: (
         <GuestGuard>
           <MainLayout />
         </GuestGuard>
       ),
       children: [
-        { path: '/', element: <LandingPage></LandingPage> },
+        { path: '', element: <LandingPage></LandingPage> },
       ]
     },
 
     {
-      path: '/projects',
+      path: '/me/projects',
       element: (
         <GuestGuard>
           <ProjectLayout />
         </GuestGuard>
       ),
       children: [
-        { path: '', element: <Navigate to="/projects/post/one" replace /> },
+        { path: '', element: <Navigate to="/me/projects/post/one" replace /> },
 
         {
           path: 'post',
