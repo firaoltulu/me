@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
 export const PATH_PAGE = {
-  root: '',
+  root: '/',
   landing: '/',
   project_one: '/projects/post/one',
   project_two: '/projects/post/two',

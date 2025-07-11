@@ -9,13 +9,9 @@ import { store, persistor } from './redux/store';
 // contexts
 import { SettingsProvider } from './contexts/SettingsContext';
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
-// import { AuthProvider } from './contexts/JWTContext';
 import { NavProvider } from './contexts/NavContext';
-
-
 // components
 import App from './App';
-import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -31,11 +27,9 @@ root.render(
             <CollapseDrawerProvider>
 
               <BrowserRouter>
-                {/* <AuthProvider> */}
-                  <NavProvider>
-                    <App />
-                  </NavProvider>
-                {/* </AuthProvider> */}
+                <NavProvider>
+                  <App />
+                </NavProvider>
               </BrowserRouter>
 
             </CollapseDrawerProvider>
