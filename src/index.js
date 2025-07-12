@@ -12,37 +12,33 @@ import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 import { NavProvider } from './contexts/NavContext';
 // components
 import App from './App';
-// import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
-  <div>hellooooooooooooooooooooooooooo</div>
-  
-  // <Typography>hellooooooooooooooooooo</Typography>
-  // <React.StrictMode>
-  //   <HelmetProvider>
-  //     <ReduxProvider store={store}>
-  //       <PersistGate persistor={persistor}>
-  //         <SettingsProvider>
+root.render(  
+  <React.StrictMode>
+    <HelmetProvider>
+      <ReduxProvider store={store}>
+        <PersistGate persistor={persistor}>
+          <SettingsProvider>
 
-  //           <CollapseDrawerProvider>
+            <CollapseDrawerProvider>
 
-  //             <BrowserRouter>
-  //               <NavProvider>
-  //                 <App />
-  //               </NavProvider>
-  //             </BrowserRouter>
+              <BrowserRouter>
+                <NavProvider>
+                  <App />
+                </NavProvider>
+              </BrowserRouter>
 
-  //           </CollapseDrawerProvider>
+            </CollapseDrawerProvider>
 
-  //         </SettingsProvider>,
-  //       </PersistGate>
-  //     </ReduxProvider>
-  //   </HelmetProvider>
-  // </React.StrictMode>
+          </SettingsProvider>,
+        </PersistGate>
+      </ReduxProvider>
+    </HelmetProvider>
+  </React.StrictMode>
 );
 
 

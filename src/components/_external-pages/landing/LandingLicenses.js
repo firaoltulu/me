@@ -471,7 +471,7 @@ export default function LandingLicenses() {
 
       </RootStyle>
 
-      <Box sx={{ height: { md: '15vh' } }} />
+      <Box sx={{ height: { md: '30vh' } }} />
 
     </Box>
   );
