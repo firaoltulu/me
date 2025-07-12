@@ -12,14 +12,16 @@ import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 import { NavProvider } from './contexts/NavContext';
 // components
 import App from './App';
-import { Typography } from '@mui/material';
+// import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <Typography>hellooooooooooooooooooo</Typography>
+  <div>hellooooooooooooooooooooooooooo</div>
+  
+  // <Typography>hellooooooooooooooooooo</Typography>
   // <React.StrictMode>
   //   <HelmetProvider>
   //     <ReduxProvider store={store}>
