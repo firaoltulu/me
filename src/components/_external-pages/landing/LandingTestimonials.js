@@ -58,74 +58,74 @@ const RootStyle = styled('div')(({ theme }) => ({
 }));
 
 const Section = styled('section')(({ theme }) => ({
-    position: 'relative',
-    overflow: 'hidden',
-    contentVisibility: 'auto',
-    containIntrinsicSize: '80px',
-    color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec',
+  position: 'relative',
+  overflow: 'hidden',
+  contentVisibility: 'auto',
+  containIntrinsicSize: '80px',
+  color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec',
 }));
 
 const Clamp = styled('div')(() => ({
-    width: '100%',
-    maxWidth: '100vw',
-    overflowX: 'clip',
-    isolation: 'isolate',
+  width: '100%',
+  maxWidth: '100vw',
+  overflowX: 'clip',
+  isolation: 'isolate',
 }));
 
 const Track = styled('div')(() => ({
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '1.25rem',
-    whiteSpace: 'nowrap',
-    willChange: 'transform',
-    padding: '0.75rem 1rem',
-    animation: 'marquee var(--marquee-duration, 18s) linear infinite',
-    '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
-    '@keyframes marquee': {
-        '0%': { transform: 'translate3d(0,0,0)' },
-        // move by half the width; sign is controlled by --flow
-        '100%': { transform: 'translate3d(calc(var(--flow, 1) * -50%), 0, 0)' },
-    },
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '1.25rem',
+  whiteSpace: 'nowrap',
+  willChange: 'transform',
+  padding: '0.75rem 1rem',
+  animation: 'marquee var(--marquee-duration, 18s) linear infinite',
+  '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+  '@keyframes marquee': {
+    '0%': { transform: 'translate3d(0,0,0)' },
+    // move by half the width; sign is controlled by --flow
+    '100%': { transform: 'translate3d(calc(var(--flow, 1) * -50%), 0, 0)' },
+  },
 }));
 
 const Item = styled('span')(() => ({
-    display: 'inline-flex',
-    alignItems: 'baseline',
-    fontSize: '1.1rem',
+  display: 'inline-flex',
+  alignItems: 'baseline',
+  fontSize: '1.1rem',
 }));
 const Dot = styled('span')(() => ({ fontSize: '1.2rem', opacity: 0.7 }));
 
 function Row({ items }) {
-    return (
-        <>
-            {items.map((it, i) =>
-                it.dot ? (
-                    <Dot key={`d-${i}`}>•</Dot>
-                ) : (
-                    <Item key={`i-${i}`}>
-                        {/* <strong style={{ paddingInline: 6 }}>{it.num}</strong> {it.label} */}
-                        <Typography variant='h5' sx={{
-                            fontFamily: 'sans-serif',
-                            alignContent: "center",
-                            alignItems: "center",
-                            textAlign: "center",
-                            // padding: "1em",
-                            paddingLeft: "1em",
-                            paddingRight: "1em",
-                            paddingTop: "0.4em",
-                            paddingBottom: "0.4em",
-                        }}
-                        >
-                            <Typography variant='h5' sx={{
-                                fontFamily: 'Ade display, sans-serif',
-                            }}
-                            > {it.label}</Typography>
-                        </Typography>
-                    </Item>
-                )
-            )}
-        </>
-    );
+  return (
+    <>
+      {items.map((it, i) =>
+        it.dot ? (
+          <Dot key={`d-${i}`}>•</Dot>
+        ) : (
+          <Item key={`i-${i}`}>
+            {/* <strong style={{ paddingInline: 6 }}>{it.num}</strong> {it.label} */}
+            <Typography variant='h5' sx={{
+              fontFamily: 'sans-serif',
+              alignContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              // padding: "1em",
+              paddingLeft: "1em",
+              paddingRight: "1em",
+              paddingTop: "0.4em",
+              paddingBottom: "0.4em",
+            }}
+            >
+              <Typography variant='h5' sx={{
+                fontFamily: 'Ade display, sans-serif',
+              }}
+              > {it.label}</Typography>
+            </Typography>
+          </Item>
+        )
+      )}
+    </>
+  );
 }
 
 // ----------------------------------------------------------------------
@@ -183,29 +183,26 @@ export default function LandingTestimonials() {
 
 
   // Content items (cleaned up to avoid repeated JSX)
-      const items = useMemo(
-          () => [
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
+  const items = useMemo(
+    () => [
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
 
-              { num: '', label: 'Licenses & certifications' },
-              { dot: true },
-              
-
-              
-          ],
-          []
-      );
+      { num: '', label: 'Licenses & certifications' },
+      { dot: true },
+    ],
+    []
+  );
 
   return (
     <Box ref={ref}>
@@ -259,7 +256,7 @@ export default function LandingTestimonials() {
                     'marginTop': '20px',
                     'marginBottom': '10px',
                     'fontFamily': 'Ade display, sans-serif',
-                    'fontSize': '3.5em',
+                    'fontSize': '1.5em',
                     'fontWeight': 400,
                   }}
                 >
@@ -350,7 +347,6 @@ export default function LandingTestimonials() {
       <Box sx={{ height: { xs: '5vh' } }} />
 
       <Section
-        id="project_section"
         // set the flow once based on your theme direction
         style={{ '--flow': theme.direction === 'rtl' ? -1 : 1 }}
       >

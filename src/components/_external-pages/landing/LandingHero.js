@@ -245,7 +245,6 @@ export default function LandingHero({ bodyRef }) {
 
   const progressScroll = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-
   // Content items (cleaned up to avoid repeated JSX)
   const items = useMemo(
     () => [
@@ -790,7 +789,6 @@ export default function LandingHero({ bodyRef }) {
       </RootStyle>
 
       <Section
-        id="project_section"
         // set the flow once based on your theme direction
         style={{ '--flow': theme.direction === 'rtl' ? -1 : 1 }}
       >

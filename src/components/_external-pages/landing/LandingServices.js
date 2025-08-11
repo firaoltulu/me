@@ -359,7 +359,7 @@ export default function LandingService() {
             </Box>
 
             <Section
-                id="project_section"
+
                 // set the flow once based on your theme direction
                 style={{ '--flow': theme.direction === 'rtl' ? -1 : 1 }}
             >

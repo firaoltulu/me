@@ -25,14 +25,14 @@ const PRIMARY_NAV = [
     "to": "testimonials_section"
   },
   {
-    "name": "contact",
-    "value": "#fda92d",
-    "to": "contact_section"
-  },
-  {
     "name": "licences",
     "value": "#ec1c24",
     "to": "licence_section"
+  },
+  {
+    "name": "contact",
+    "value": "#fda92d",
+    "to": "contact_section"
   },
 
 ];

@@ -135,7 +135,7 @@ export default function LandingLicenses() {
       { dot: true },
       { num: '', label: 'For More Information Contact Me' },
       { dot: true },
-      
+
     ],
     []
   );
@@ -441,7 +441,6 @@ export default function LandingLicenses() {
       <Box sx={{ height: { md: '10vh' } }} />
 
       <Section
-        id="project_section"
         // set the flow once based on your theme direction
         style={{ '--flow': theme.direction === 'rtl' ? -1 : 1 }}
       >
