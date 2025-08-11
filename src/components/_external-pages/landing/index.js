@@ -5,3 +5,6 @@ export { default as LandingTestimonials } from './LandingTestimonials';
 export { default as LandingContact } from './LandingContact';
 export { default as LandingFooter } from './LandingFooter';
 export { default as LandingLicenses } from './LandingLicenses';
+export { default as LandingPortfolio } from './LandingPortfolio';
+
+

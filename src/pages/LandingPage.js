@@ -11,7 +11,8 @@ import {
   LandingTestimonials,
   LandingContact,
   LandingFooter,
-  LandingLicenses
+  LandingLicenses,
+  LandingPortfolio
 } from '../components/_external-pages/landing';
 import "../components/_external-pages/landing/styles.css";
 
@@ -236,9 +237,11 @@ export default function LandingPage() {
           <LandingHero bodyRef={bodyRef} />
           <LandingService />
           <LandingProjects />
+          <LandingPortfolio />
           <LandingTestimonials />
-          <LandingContact />
           <LandingLicenses />
+
+          <LandingContact />
 
           <LandingFooter />
 

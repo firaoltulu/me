@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import SendIcon from '@mui/icons-material/Send';
@@ -35,6 +35,78 @@ const RootStyle = styled('div')(({ theme }) => ({
   }
 }));
 
+const Section = styled('section')(({ theme }) => ({
+  position: 'relative',
+  overflow: 'hidden',
+  contentVisibility: 'auto',
+  containIntrinsicSize: '80px',
+  color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec',
+}));
+
+const Clamp = styled('div')(() => ({
+  width: '100%',
+  maxWidth: '100vw',
+  overflowX: 'clip',
+  isolation: 'isolate',
+}));
+
+const Track = styled('div')(() => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '1.25rem',
+  whiteSpace: 'nowrap',
+  willChange: 'transform',
+  padding: '0.75rem 1rem',
+  animation: 'marquee var(--marquee-duration, 18s) linear infinite',
+  '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+  '@keyframes marquee': {
+    '0%': { transform: 'translate3d(0,0,0)' },
+    // move by half the width; sign is controlled by --flow
+    '100%': { transform: 'translate3d(calc(var(--flow, 1) * -50%), 0, 0)' },
+  },
+}));
+
+const Item = styled('span')(() => ({
+  display: 'inline-flex',
+  alignItems: 'baseline',
+  fontSize: '1.1rem',
+}));
+const Dot = styled('span')(() => ({ fontSize: '1.2rem', opacity: 0.7 }));
+
+function Row({ items }) {
+  return (
+    <>
+      {items.map((it, i) =>
+        it.dot ? (
+          <Dot key={`d-${i}`}>•</Dot>
+        ) : (
+          <Item key={`i-${i}`}>
+            {/* <strong style={{ paddingInline: 6 }}>{it.num}</strong> {it.label} */}
+            <Typography variant='h5' sx={{
+              fontFamily: 'sans-serif',
+              alignContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              // padding: "1em",
+              paddingLeft: "1em",
+              paddingRight: "1em",
+              paddingTop: "0.4em",
+              paddingBottom: "0.4em",
+            }}
+            >
+              <Typography variant='h5' sx={{
+                fontFamily: 'Ade display, sans-serif',
+              }}
+              > {it.label}</Typography>
+            </Typography>
+          </Item>
+        )
+      )}
+    </>
+  );
+}
+
+
 // ----------------------------------------------------------------------
 
 export default function LandingLicenses() {
@@ -52,132 +124,27 @@ export default function LandingLicenses() {
     }
   }, [inView])
 
-  const animation = {
-    x: ["0%", theme.direction === "rtl" ? "100%" : "-100%"],
-    transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 10,
-        ease: ["circIn", "circOut"],
-        type: "tween"
-      },
-    },
-  };
+
+  const items = useMemo(
+    () => [
+      { num: '', label: 'For More Information Contact Me' },
+      { dot: true },
+      { num: '', label: 'For More Information Contact Me' },
+      { dot: true },
+      { num: '', label: 'For More Information Contact Me' },
+      { dot: true },
+      { num: '', label: 'For More Information Contact Me' },
+      { dot: true },
+      
+    ],
+    []
+  );
+
 
   return (
     <Box ref={ref}>
 
       <RootStyle id='licence_section'>
-
-        <Box className="loop_scroll" sx={{
-          borderTop: '1px solid #371f0e33',
-          borderBottom: '1px solid #371f0e33',
-          borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
-        }}>
-
-          <motion.div className="infinity_content" animate={animation}
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              transformStyle: "preserve-3d",
-              color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec'
-            }}
-          >
-
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-            <Box className="infinity_inside">
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-              <h5>Licenses & certifications</h5>
-              <h5>•</h5>
-            </Box>
-
-
-
-
-          </motion.div>
-
-        </Box>
 
         <Container maxWidth="lg" sx={{
           position: 'relative',
@@ -471,7 +438,33 @@ export default function LandingLicenses() {
 
       </RootStyle>
 
-      <Box sx={{ height: { md: '30vh' } }} />
+      <Box sx={{ height: { md: '10vh' } }} />
+
+      <Section
+        id="project_section"
+        // set the flow once based on your theme direction
+        style={{ '--flow': theme.direction === 'rtl' ? -1 : 1 }}
+      >
+        <Box
+          sx={{
+            borderTop: '1px solid',
+            borderBottom: '1px solid',
+            borderColor: 'divider',
+          }}
+        >
+          <Clamp>
+            {/* Duplicate content once for seamless loop */}
+            <Track>
+              <div className="marquee-inner">
+                <Row items={items} />
+              </div>
+              <div className="marquee-inner" aria-hidden>
+                <Row items={items} />
+              </div>
+            </Track>
+          </Clamp>
+        </Box>
+      </Section>
 
     </Box>
   );

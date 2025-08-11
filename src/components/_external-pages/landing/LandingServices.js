@@ -1,10 +1,10 @@
 // material
 import { styled } from '@mui/material/styles';
 import { motion, useTransform, useScroll } from 'framer-motion';
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { useInView } from 'react-intersection-observer';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 //
 import { TextAnimate } from '../../animate';
@@ -16,6 +16,78 @@ import useNav from '../../../hooks/useNav';
 
 const RootStyle = styled('div')(({ theme }) => ({
 }));
+
+
+const Section = styled('section')(({ theme }) => ({
+    position: 'relative',
+    overflow: 'hidden',
+    contentVisibility: 'auto',
+    containIntrinsicSize: '80px',
+    color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec',
+}));
+
+const Clamp = styled('div')(() => ({
+    width: '100%',
+    maxWidth: '100vw',
+    overflowX: 'clip',
+    isolation: 'isolate',
+}));
+
+const Track = styled('div')(() => ({
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '1.25rem',
+    whiteSpace: 'nowrap',
+    willChange: 'transform',
+    padding: '0.75rem 1rem',
+    animation: 'marquee var(--marquee-duration, 18s) linear infinite',
+    '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+    '@keyframes marquee': {
+        '0%': { transform: 'translate3d(0,0,0)' },
+        // move by half the width; sign is controlled by --flow
+        '100%': { transform: 'translate3d(calc(var(--flow, 1) * -50%), 0, 0)' },
+    },
+}));
+
+const Item = styled('span')(() => ({
+    display: 'inline-flex',
+    alignItems: 'baseline',
+    fontSize: '1.1rem',
+}));
+const Dot = styled('span')(() => ({ fontSize: '1.2rem', opacity: 0.7 }));
+
+function Row({ items }) {
+    return (
+        <>
+            {items.map((it, i) =>
+                it.dot ? (
+                    <Dot key={`d-${i}`}>•</Dot>
+                ) : (
+                    <Item key={`i-${i}`}>
+                        {/* <strong style={{ paddingInline: 6 }}>{it.num}</strong> {it.label} */}
+                        <Typography variant='h5' sx={{
+                            fontFamily: 'sans-serif',
+                            alignContent: "center",
+                            alignItems: "center",
+                            textAlign: "center",
+                            // padding: "1em",
+                            paddingLeft: "1em",
+                            paddingRight: "1em",
+                            paddingTop: "0.4em",
+                            paddingBottom: "0.4em",
+                        }}
+                        >
+                            <Typography variant='h5' sx={{
+                                fontFamily: 'Ade display, sans-serif',
+                            }}
+                            > {it.label}</Typography>
+                        </Typography>
+                    </Item>
+                )
+            )}
+        </>
+    );
+}
 
 // ----------------------------------------------------------------------
 
@@ -41,18 +113,6 @@ export default function LandingService() {
         offset: ["start start", "center start"],
     });
 
-    const animation = {
-        x: ["0%", theme.direction === "rtl" ? "100%" : "-100%"],
-        transition: {
-            x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 10,
-                ease: ["circIn", "circOut"],
-                type: "tween"
-            },
-        },
-    };
 
     const opacityTab1 = useTransform(scrollYProgress, [0, 0.30, 0.32, 0.76], [1, 1, .35, .1]);
     const opacityTab2 = useTransform(scrollYProgress, [0.30, 0.33, 0.65, 0.67], [.35, 1, 1, 0.35]);
@@ -67,6 +127,34 @@ export default function LandingService() {
     const copyscroll3 = useTransform(scrollYProgress, [0.66, 0.67, 1], [0, 1, 1]);
 
 
+    // Content items (cleaned up to avoid repeated JSX)
+    const items = useMemo(
+        () => [
+            { num: '', label: 'Backend Development' },
+            { dot: true },
+            { num: '', label: 'Frontend Development' },
+            { dot: true },
+            { num: '', label: 'iOS/Android App Development' },
+            { dot: true },
+            { num: '', label: 'Software Development' },
+            { dot: true },
+            { num: '', label: 'Website Development' },
+            { dot: true },
+            { num: '', label: 'UI/UX Design' },
+            { dot: true },
+            { num: '', label: 'E-commerce Solutions' },
+            { dot: true },
+            { num: '', label: 'API Development' },
+            { dot: true },
+            { num: '', label: 'Cloud Solutions' },
+            { dot: true },
+            { num: '', label: 'DevOps Services' },
+            { dot: true },
+            { num: '', label: 'Performance Optimization' },
+            { dot: true },
+        ],
+        []
+    );
 
     return (
         <RootStyle sx={{ color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec' }} id='service_section' ref={ref}>
@@ -270,121 +358,31 @@ export default function LandingService() {
 
             </Box>
 
-            <Box className="loop_scroll" sx={{
-                borderTop: '1px solid #371f0e33',
-                borderBottom: '1px solid #371f0e33',
-                borderColor: theme.palette.mode === 'light' ? '#371f0e33' : '#fcf2ec66'
-            }}>
-
-                <motion.div className="infinity_content" animate={animation} style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    transformStyle: "preserve-3d",
-                    color: theme.palette.mode === 'light' ? '#371f0e' : '#fcf2ec'
-
-                }}>
-
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-                    <Box className="infinity_inside">
-                        <h5>Software Development</h5>
-                        <h5>•</h5>
-                        <h5>Website Development</h5>
-                        <h5>•</h5>
-                        <h5>Backend Development</h5>
-                        <h5>•</h5>
-                        <h5>Frontend Development</h5>
-                        <h5>•</h5>
-                        <h5>iOS/Android App Development</h5>
-                        <h5>•</h5>
-                    </Box>
-
-                </motion.div>
-
-            </Box>
+            <Section
+                id="project_section"
+                // set the flow once based on your theme direction
+                style={{ '--flow': theme.direction === 'rtl' ? -1 : 1 }}
+            >
+                <Box
+                    sx={{
+                        borderTop: '1px solid',
+                        borderBottom: '1px solid',
+                        borderColor: 'divider',
+                    }}
+                >
+                    <Clamp>
+                        {/* Duplicate content once for seamless loop */}
+                        <Track>
+                            <div className="marquee-inner">
+                                <Row items={items} />
+                            </div>
+                            <div className="marquee-inner" aria-hidden>
+                                <Row items={items} />
+                            </div>
+                        </Track>
+                    </Clamp>
+                </Box>
+            </Section>
 
 
 
